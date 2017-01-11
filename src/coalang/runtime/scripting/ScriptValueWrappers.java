@@ -1,11 +1,12 @@
 package coalang.runtime.scripting;
 
+import io.github.coalangsoft.lib.data.Func;
+
 import java.util.HashMap;
 
 import javax.script.ScriptEngine;
 
 import ccl.rt.Value;
-import ccl.rt.use.Func;
 
 public class ScriptValueWrappers {
 

@@ -1,10 +1,11 @@
 package coalang.runtime.scripting;
 
+import io.github.coalangsoft.lib.data.Func;
+
 import javax.script.ScriptEngine;
 
 import ccl.rt.Expression;
 import ccl.rt.Value;
-import ccl.rt.use.Func;
 
 public class ScriptEngineValue extends Expression {
 	

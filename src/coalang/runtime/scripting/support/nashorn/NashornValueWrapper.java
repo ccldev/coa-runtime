@@ -1,10 +1,10 @@
 package coalang.runtime.scripting.support.nashorn;
 
+import io.github.coalangsoft.lib.data.Func;
 import jdk.nashorn.api.scripting.ScriptObjectMirror;
 import ccl.rt.Expression;
 import ccl.rt.Special;
 import ccl.rt.Value;
-import ccl.rt.use.Func;
 
 public class NashornValueWrapper implements Func<Object, Value> {
 

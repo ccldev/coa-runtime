@@ -3,11 +3,12 @@ package coalang.runtime.scripting.support.nashorn;
 import jdk.nashorn.api.scripting.ScriptObjectMirror;
 
 import ccl.rt.ArrayValue;
+import ccl.rt.vm.IVM;
 
 public class NashornArrayValue extends ArrayValue {
 
-	public NashornArrayValue(ScriptObjectMirror value) {
-		super(new NashornArray(value));
+	public NashornArrayValue(IVM vm, ScriptObjectMirror value) {
+		super(vm, new NashornArray(vm, value));
 	}
 
 }

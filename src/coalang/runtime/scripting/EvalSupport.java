@@ -5,6 +5,7 @@ import javax.script.ScriptEngineManager;
 
 import ccl.rt.Expression;
 import ccl.rt.Value;
+import ccl.rt.vm.IVM;
 
 public class EvalSupport extends Expression{
 
@@ -13,9 +14,11 @@ public class EvalSupport extends Expression{
 	}
 	
 	private ScriptEngineManager mgr;
+	private IVM vm;
 
-	public EvalSupport(ScriptEngineManager mgr){
-		super(mgr);
+	public EvalSupport(IVM vm, ScriptEngineManager mgr){
+		super(vm, mgr);
+		this.vm = vm;
 		this.mgr = mgr;
 	}
 	
@@ -23,7 +26,7 @@ public class EvalSupport extends Expression{
 	public Value getProperty(String name) {
 		ScriptEngine e = mgr.getEngineByExtension(name);
 		if(e != null){
-			return new ScriptEngineValue(
+			return new ScriptEngineValue(vm,
 				e,
 				ScriptValueWrappers.find(e)
 			);

@@ -3,13 +3,16 @@ package coalang.runtime.scripting.support.nashorn;
 import jdk.nashorn.api.scripting.ScriptObjectMirror;
 import ccl.rt.Expression;
 import ccl.rt.Value;
+import ccl.rt.vm.IVM;
 
 public class NashornMirrorValue extends Expression {
 
 	private ScriptObjectMirror mirror;
+	private IVM vm;
 
-	public NashornMirrorValue(ScriptObjectMirror value) {
-		super(value);
+	public NashornMirrorValue(IVM vm, ScriptObjectMirror value) {
+		super(vm, value);
+		this.vm = vm;
 		this.mirror = value;
 	}
 	
@@ -19,7 +22,7 @@ public class NashornMirrorValue extends Expression {
 			for(int i = 0; i < args.length; i++){
 				params[i] = args[i].getValue();
 			}
-			return new Expression(mirror.call(null, params));
+			return new Expression(vm, mirror.call(null, params));
 		}else{
 			return super.invoke(args);
 		}
